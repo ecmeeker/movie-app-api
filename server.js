@@ -54,12 +54,13 @@ app.post("/movie/", (req, res, next) => {
   var data = {
     name: req.body.name,
     genre: req.body.genre,
+    popularity: req.body.popularity,
     platform: req.body.platform,
     description: req.body.description,
     watched: req.body.watched,
     dateWatched: req.body.dateWatched
   }
-  db.run(`INSERT INTO movie (name, genre, platform, description, watched, dateWatched) VALUES (?,?,?,?,?,?)`,[data.name, data.genre, data.platform, data.description, "false", data.dateWatched],
+  db.run(`INSERT INTO movie (name, genre, platform, popularity, description, watched, dateWatched) VALUES (?,?,?,?,?,?,?)`,[data.name, data.genre, data.platform, data.popularity, data.description, "false", data.dateWatched],
   (err, result) => {
     if (err){
       res.status(400).json({"error": res.message});

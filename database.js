@@ -14,6 +14,7 @@ let db = new sqlite3.Database(DBSOURCE, (err) => {
       id INTEGER PRIMARY KEY AUTOINCREMENT,
       name text,
       genre text,
+      popularity text,
       platform text,
       description text UNIQUE,
       watched boolean,
